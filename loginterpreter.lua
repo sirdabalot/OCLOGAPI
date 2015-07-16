@@ -20,6 +20,8 @@ local logfilecol = 0x00FFFF
 
 path = "/"
 
+local clog = logContainer( )
+
 gpu.setForeground( whitecol )
 gpu.setBackground( blackcol )
 
@@ -51,7 +53,6 @@ function drawEntry( entry )
 end
 
 function interpretelogFile( path )
-	local clog = logContainer( )
 	clog:loadFrom( path )
 	
 	shownEntries = clog.entries
@@ -67,7 +68,7 @@ function interpretelogFile( path )
 		end
 		term.write( "|" .. string.rep( "=", tdl ) .. "|" .. string.rep( "=", infl ) .. "|" .. string.rep( "=", pril ) .. "|\n" )
 		
-		term.write( "Use arrow keyes for navigation\nQ to (Q)uit\nF to (F)ind\nR to (R)eset\n" ) -- q 16 f 33 d 32 p 25 r 19
+		term.write( "Use arrow keyes for navigation\nQ to (Q)uit\nF to (F)ind\nR to (R)eset\nE to (E)xport CSV" ) -- q 16 f 33 d 32 p 25 r 19
 		
 		ev, addr, ch, co, pl = event.pull( "key_down" )
 		
@@ -78,6 +79,11 @@ function interpretelogFile( path )
 		elseif ( co == 16 ) then
 			term.clear( )
 			break
+		elseif ( co == 18 ) then
+			term.clear( )
+			term.write( "Path to export: " )
+			expPath = term.read( )
+			clog:exportCSV( "/" .. string.sub( expPath, 1, #expPath-1 ) )
 		elseif ( co == 19 ) then
 			shownEntries = clog.entries
 		elseif ( co == 33 ) then

@@ -65,6 +65,17 @@ function logContainerMeta:save( path ) -- Saves the entry list to the specified 
 		io.write( v:serialize( ), "\n" )
 	end
 	io.flush( )
+	io.close( )
+end
+
+function logContainerMeta:exportCSV( path )
+	io.output( path )
+	io.write( "Date/Time,Log Info,Priority\n" )
+	for k, v in ipairs( self.entries ) do
+		io.write( v:serializeCSV( ), "\n" )
+	end
+	io.flush( )
+	io.close( )
 end
 
 --Entry
@@ -122,4 +133,8 @@ end
 
 function entryMeta:serialize( ) -- Serializes entry for transmission or storage
 	return "|" .. self.timedatestamp .. "|" .. self.info .. "|" .. self.priority .. "|"
+end
+
+function entryMeta:serializeCSV( ) -- Serializes entry for transmission or storage
+	return "\"" .. self.timedatestamp .. "\",\"" .. self.info .. "\",\"" .. self.priority .. "\""
 end
