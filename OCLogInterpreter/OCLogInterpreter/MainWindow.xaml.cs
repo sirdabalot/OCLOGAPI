@@ -23,12 +23,14 @@ namespace OCLogInterpreter
 
         LogFile lf;
         Microsoft.Win32.OpenFileDialog ofd;
+        Microsoft.Win32.SaveFileDialog sfd;
 
         public MainWindow()
         {
             InitializeComponent();
             lf = new LogFile();
             ofd = new Microsoft.Win32.OpenFileDialog();
+            sfd = new Microsoft.Win32.SaveFileDialog();
 
             EntriesView.ItemsSource = lf.m_entryList;
             PriorityFilterDD.ItemsSource = lf.m_listOfPriorities;
@@ -90,6 +92,23 @@ namespace OCLogInterpreter
         private void PriorityFilterDD_DropDownClosed(object sender, EventArgs e)
         {
             RenewFilter( sender, null );
+        }
+
+        private void ExportLogFile(object sender, RoutedEventArgs e)
+        {
+            sfd.DefaultExt = ".csv";
+            sfd.Filter = "Comma Seperated Values (.csv)|*.csv";
+            bool? result = sfd.ShowDialog();
+
+            if (result == true)
+            {
+                lf.exportAsCSV(sfd.FileName);
+            }
+            else
+            {
+                MessageBox.Show("Error saving file!");
+            }
+
         }
 
     }

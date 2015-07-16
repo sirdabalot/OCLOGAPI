@@ -12,6 +12,7 @@
         <ToolBarTray Grid.ColumnSpan="3">
             <ToolBar>
                 <Button Content="Open" Click="OpenLogFile"></Button>
+                <Button Content="Export CSV" Click="ExportLogFile"></Button>
             </ToolBar>
         </ToolBarTray>
 

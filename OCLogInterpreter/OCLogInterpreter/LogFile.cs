@@ -93,6 +93,24 @@ namespace OCLogInterpreter
                 sr.Close();
             }
         }
+
+        public void exportAsCSV(string path)
+        {
+            StreamWriter sw = new StreamWriter(path);
+
+            try
+            {
+                sw.WriteLine("Date/Time,Log Information,Priority");
+                foreach (Entry e in m_entryList)
+                {
+                    sw.WriteLine(e.toCSVFormat());
+                }
+            }
+            finally
+            {
+                sw.Close();
+            }
+        }
     }
 
     class Entry
@@ -139,6 +157,15 @@ namespace OCLogInterpreter
             }
 
             return newEntry;
+        }
+
+        public string toCSVFormat() {
+            string retString = "\"" +
+                   m_dateTime + "\",\"" +
+                   m_info + "\",\"" +
+                   m_priority + "\"";
+
+            return retString;
         }
     }
 }
