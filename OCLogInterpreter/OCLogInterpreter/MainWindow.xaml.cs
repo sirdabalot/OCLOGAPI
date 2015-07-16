@@ -83,8 +83,13 @@ namespace OCLogInterpreter
                     EntriesView.ItemsSource = lf.m_entryList;
                 }
 
-                EntriesView.Items.Refresh();
+                refreshAllItems();
             }
+        }
+
+        private void PriorityFilterDD_DropDownClosed(object sender, EventArgs e)
+        {
+            RenewFilter( sender, null );
         }
 
     }

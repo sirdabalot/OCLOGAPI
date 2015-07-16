@@ -11,3 +11,16 @@ c:\users\joeseph\documents\visual studio 2013\Projects\OCLogInterpreter\OCLogInt
 c:\users\joeseph\documents\visual studio 2013\Projects\OCLogInterpreter\OCLogInterpreter\bin\Debug\OCLogInterpreter.pdb
 c:\users\joeseph\documents\visual studio 2013\Projects\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.exe
 c:\users\joeseph\documents\visual studio 2013\Projects\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.pdb
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\bin\Debug\OCLogInterpreter.exe.config
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.exe
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.pdb
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\bin\Debug\OCLogInterpreter.exe
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\bin\Debug\OCLogInterpreter.pdb
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.csprojResolveAssemblyReference.cache
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\MainWindow.baml
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\MainWindow.g.cs
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\App.g.cs
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter_MarkupCompile.cache
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.g.resources
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.Properties.Resources.resources
+C:\Users\joeseph\Documents\OCLOGAPI\OCLogInterpreter\OCLogInterpreter\obj\Debug\OCLogInterpreter.csproj.GenerateResource.Cache
