@@ -25,7 +25,7 @@ function logContainerMeta:addEntry( newEntry ) -- Adds an entry "object" to the 
 	table.insert( self.entries, newEntry )
 	file = io.open( self.path, "wa" )
 	io.output( file )
-	io.write( newEntry.serialize, "\n" )
+	io.write( newEntry:serialize( ), "\n" )
 	io.flush( file )
 	io.close( file )
 end
