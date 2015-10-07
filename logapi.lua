@@ -9,7 +9,7 @@ logContainerMeta.__index = logContainerMeta
 
 function logContainer( inPath ) -- Creates a log container ( sort of a massive list for entries ).
 	slc = {
-		path = inPath
+		path = inPath,
 		entries = { }
 	}
 	setmetatable( slc, logContainerMeta )
