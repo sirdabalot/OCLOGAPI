@@ -23,11 +23,10 @@ end
 
 function logContainerMeta:addEntry( newEntry ) -- Adds an entry "object" to the specified container.
 	table.insert( self.entries, newEntry )
-	file = io.open( self.path, "wa" )
-	io.output( file )
-	io.write( newEntry:serialize( ), "\n" )
-	io.flush( file )
-	io.close( file )
+	file = io.open( self.path, "a" )
+	file:write( newEntry:serialize( ), "\n" )
+	file:flush( )
+	file:close( )
 end
 
 -- Looks through container and returns a new table of entries that are matching the filter.
