@@ -23,7 +23,7 @@ end
 
 function logContainerMeta:addEntry( newEntry ) -- Adds an entry "object" to the specified container.
 	table.insert( self.entries, newEntry )
-	io.open( self.path, "wa" )
+	io.output( io.open( self.path, "wa" ) )
 	io.write( newEntry.serialize, "\n" )
 	io.flush( )
 	io.close( )
