@@ -7,16 +7,26 @@ local logContainerMeta = { }
 
 logContainerMeta.__index = logContainerMeta
 
-function logContainer( ) -- Creates a log container ( sort of a massive list for entries ).
+function logContainer( inPath ) -- Creates a log container ( sort of a massive list for entries ).
 	slc = {
+		path = inPath
 		entries = { }
 	}
 	setmetatable( slc, logContainerMeta )
+	
+	if ( fs.exists( inPath ) ) then
+		slc:loadFrom( inPath )
+	end
+	
 	return slc
 end
 
 function logContainerMeta:addEntry( newEntry ) -- Adds an entry "object" to the specified container.
 	table.insert( self.entries, newEntry )
+	io.open( self.path, "wa" )
+	io.write( newEntry.serialize, "\n" )
+	io.flush( )
+	io.close( )
 end
 
 -- Looks through container and returns a new table of entries that are matching the filter.
