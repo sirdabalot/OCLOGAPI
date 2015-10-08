@@ -48,7 +48,7 @@ end
 -- Looks through container and returns a new table of entries that are matching the filter.
 -- Note that the filter can be either dd/mm/yy, hh/mm/ss, or dd/mm/yy hh/mm/ss.
 
-function logContainer:removeEntry( entry ) -- Duplicates not taken into account
+function logContainerMeta:removeEntry( entry ) -- Duplicates not taken into account
 	for k, v in ipairs( self.entries ) do
 		if ( v:entryUnserialize() == entry:entryUnserialize() ) then
 			table.remove( self.entries, k )
