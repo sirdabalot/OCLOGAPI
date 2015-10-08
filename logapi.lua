@@ -21,12 +21,14 @@ function logContainer( inPath ) -- Creates a log container ( sort of a massive l
 	return slc
 end
 
-function logContainerMeta:addEntry( newEntry ) -- Adds an entry "object" to the specified container.
+function logContainerMeta:addEntry( newEntry, append ) -- Adds an entry "object" to the specified container.
 	table.insert( self.entries, newEntry )
-	file = io.open( self.path, "a" )
-	file:write( newEntry:serialize( ), "\n" )
-	file:flush( )
-	file:close( )
+	if ( append ) then
+		file = io.open( self.path, "a" )
+		file:write( newEntry:serialize( ), "\n" )
+		file:flush( )
+		file:close( )
+	end
 end
 
 -- Looks through container and returns a new table of entries that are matching the filter.
@@ -64,8 +66,13 @@ end
 
 function logContainerMeta:loadFrom( path ) -- Loads an entry list from the specified path
 	io.input( path )
-	for line in io.lines( ) do
-		self:addEntry( entryUnserialize( line ) )
+	allLines = { }
+	for l in io.lines( ) do
+		table.insert( allLines, l )
+	end
+	io.close( )
+	for k, v in ipairs( allLines ) do
+		self:addEntry( entryUnserialize( v ), false )
 	end
 end
 
